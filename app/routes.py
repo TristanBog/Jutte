@@ -20,3 +20,7 @@ def intro():
 def dynamic_page(input):
     flash("Helaas, dit werkt niet.")
     return redirect(url_for('home'))
+
+@app.route('/fjordverdriet')
+def fjordverdriet():
+    return render_template('fjordverdriet.html')
