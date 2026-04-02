@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brief aan Zijne Majesteit</title>
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=MedievalSharp&family=Cinzel+Decorative:wght@400;700&family=Almendra:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background-color: #2a1a0e;
+      background-image:
+        radial-gradient(ellipse at 20% 30%, #3d2510 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, #1a0d05 0%, transparent 60%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+      font-family: 'Almendra', serif;
+    }
+
+    /* Parchment */
+    .parchment {
+      position: relative;
+      max-width: 780px;
+      width: 100%;
+      background-color: #f2e0b0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E"),
+        linear-gradient(160deg, #f5e6c0 0%, #e8d09a 40%, #f0dba8 70%, #e2cc8e 100%);
+      padding: 4rem 5rem;
+      border-radius: 2px;
+
+      box-shadow:
+        0 0 0 1px #b89050,
+        0 0 0 6px #c8a060,
+        0 0 0 8px #8b6030,
+        inset 0 0 60px rgba(100, 60, 10, 0.25),
+        inset 0 0 120px rgba(80, 40, 5, 0.12),
+        0 20px 80px rgba(0,0,0,0.7),
+        0 4px 20px rgba(0,0,0,0.5);
+
+      animation: unfurl 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes unfurl {
+      from { opacity: 0; transform: translateY(-30px) scaleY(0.95); }
+      to   { opacity: 1; transform: translateY(0) scaleY(1); }
+    }
+
+    .parchment::before,
+    .parchment::after {
+      content: '❧';
+      position: absolute;
+      font-size: 2.4rem;
+      color: #7a4e1a;
+      opacity: 0.55;
+    }
+    .parchment::before { top: 1.4rem; left: 1.8rem; }
+    .parchment::after  { bottom: 1.4rem; right: 1.8rem; transform: scaleX(-1); }
+
+    .rule {
+      display: block;
+      width: 80%;
+      margin: 0 auto 2rem;
+      border: none;
+      border-top: 1px solid #9a7030;
+      opacity: 0.5;
+    }
+    .rule.bottom { margin-top: 2rem; margin-bottom: 0; }
+
+    .ornament {
+      text-align: center;
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 1.3rem;
+      color: #7a4010;
+      letter-spacing: 0.15em;
+      margin-bottom: 2rem;
+      opacity: 0.7;
+    }
+
+    .salutation {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 1.9rem;
+      color: #5a2e08;
+      line-height: 1.4;
+      margin-bottom: 2.2rem;
+      text-align: center;
+      text-shadow: 1px 1px 0 rgba(255,220,150,0.4);
+    }
+
+    /* Body paragraphs */
+    .body-text {
+      color: #3a200a;
+      font-size: 1.08rem;
+      line-height: 1.95;
+      text-align: justify;
+      hyphens: auto;
+      margin-bottom: 1.3rem;
+      font-family: 'Almendra', serif;
+      letter-spacing: 0.01em;
+    }
+
+    .body-text:first-of-type::first-letter {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 4.5rem;
+      float: left;
+      line-height: 0.75;
+      margin-right: 0.12em;
+      margin-top: 0.08em;
+      color: #7a1a00;
+      text-shadow: 2px 2px 4px rgba(100,40,0,0.3);
+    }
+
+    /* Closing section */
+    .closing {
+      margin-top: 2.5rem;
+      font-style: italic;
+      color: #3a200a;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      font-family: 'Almendra', serif;
+    }
+
+    .signature-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-top: 2.2rem;
+      gap: 1rem;
+    }
+
+    .signature-block {
+      flex: 1;
+    }
+
+    .signed-by {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 1.5rem;
+      color: #5a2e08;
+      line-height: 1.5;
+    }
+
+    .seal {
+      flex-shrink: 0;
+      width: 110px;
+      height: 110px;
+    }
+
+    .seal svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(2px 4px 8px rgba(80,0,0,0.5));
+    }
+
+    .seal-text {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 11px;
+      fill: #f5c8a0;
+      text-anchor: middle;
+    }
+  </style>
+</head>
+<body>
+
+<article class="parchment" lang="nl">
+
+  <div class="ornament">✦ &nbsp;2026 Anno Domini &nbsp; ✦</div>
+  <hr class="rule"/>
+
+  <h1 class="salutation">Aan Zijne Majesteit, verheven Koning<br/>en heerser der Vlaeminghen,</h1>
+
+  <hr class="rule"/>
+
+  <p class="body-text">
+    Met diep ontzag en in nederige dienstbaarheid richt ik mij tot U, moge deze brief U bereiken in
+    goede gezondheid en onder de bescherming van het Goddelijke.
+  </p>
+
+  <p class="body-text">
+    Het zij u bekend gemaakt dat het gevreesde beest, de Jutten Draak, die ons landschap lang
+    teisterde met Vaseline-aanvallen, vegetarische airfryersnacks en fluorescente pennen, zich heeft
+    verheven uit haar grot te Gent en is weggevlogen naar het land der Noorwegen.
+  </p>
+
+  <p class="body-text">
+    Hoewel dit potentieel goed nieuws zou betekenen, merken onze nobele stadsridders dat het plebs
+    een gemis vertoont aan de Jutten Draak. Zo meent men fantastische feesten te hebben beleefd met
+    haar, met lekker eten dat de Jutten Draak meende zelf gecreëerd te hebben.
+  </p>
+
+  <p class="body-text">
+    Derhalve smeek ik U, o Majesteit, om raad en bevel. Zullen wij onze nobelste wachters, de
+    Jonckvrouwen Maridus ende Tristus, sturen naar het land der Noorwegen om de Jutten Draak terug
+    naar ons nederig Vlaenderenland de weg te wijzen als grote beschermer van het volk?
+  </p>
+
+  <hr class="rule bottom"/>
+
+  <p class="closing">
+    Moge de Heer U leiden in uw besluit, en moge vrede wederkeren in uw rijk.
+  </p>
+
+  <div class="signature-row">
+    <div class="signature-block">
+      <p class="closing">Geschreven in nederigheid en trouw,</p>
+      <p class="signed-by">Uw gehoorzame dienaar,<br/>Heer Ferric De Haegheman.</p>
+    </div>
+
+    <div class="seal" aria-label="Wax seal">
+      <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="sealGrad" cx="40%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#d94020"/>
+            <stop offset="50%" stop-color="#b02010"/>
+            <stop offset="100%" stop-color="#6a0a00"/>
+          </radialGradient>
+          <radialGradient id="sealShine" cx="35%" cy="30%" r="40%">
+            <stop offset="0%" stop-color="rgba(255,200,180,0.35)"/>
+            <stop offset="100%" stop-color="rgba(255,100,50,0)"/>
+          </radialGradient>
+          <filter id="emboss">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+            <feOffset dx="1" dy="1" result="offset"/>
+            <feComposite in="SourceGraphic" in2="offset" operator="over"/>
+          </filter>
+        </defs>
+
+        <ellipse cx="60" cy="62" rx="52" ry="50" fill="url(#sealGrad)"/>
+        <ellipse cx="25" cy="72" rx="10" ry="7" fill="#a01808" transform="rotate(-20 25 72)"/>
+        <ellipse cx="95" cy="55" rx="8" ry="6" fill="#a01808" transform="rotate(15 95 55)"/>
+        <ellipse cx="70" cy="108" rx="9" ry="6" fill="#a01808" transform="rotate(-5 70 108)"/>
+        <ellipse cx="40" cy="105" rx="7" ry="5" fill="#9a1508" transform="rotate(10 40 105)"/>
+
+        <circle cx="60" cy="60" r="46" fill="url(#sealGrad)"/>
+        <circle cx="60" cy="60" r="46" fill="url(#sealShine)"/>
+
+        <circle cx="60" cy="60" r="44" fill="none" stroke="#f5c8a0" stroke-width="1" opacity="0.6"/>
+        <circle cx="60" cy="60" r="38" fill="none" stroke="#f5c8a0" stroke-width="0.5" opacity="0.4"/>
+
+        <g fill="#f5c8a0" opacity="0.9" transform="translate(60,58) scale(0.55)">
+          <ellipse cx="0" cy="-20" rx="7" ry="18"/>
+          <ellipse cx="-14" cy="-12" rx="7" ry="14" transform="rotate(-35 -14 -12)"/>
+          <ellipse cx="14" cy="-12" rx="7" ry="14" transform="rotate(35 14 -12)"/>
+          <rect x="-14" y="0" width="28" height="5" rx="2"/>
+          <ellipse cx="0" cy="12" rx="5" ry="8"/>
+        </g>
+
+        <path id="arcTop" d="M 18,60 A 42,42 0 0,1 102,60" fill="none"/>
+        <text class="seal-text" font-size="9.5">
+          <textPath href="#arcTop" startOffset="10%">✦ VLAENDERENLAND ✦</textPath>
+        </text>
+      </svg>
+    </div>
+  </div>
+
+</article>
+
+</body>
+</html>

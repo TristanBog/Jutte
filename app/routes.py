@@ -24,3 +24,15 @@ def dynamic_page(input):
 @app.route('/fjordverdriet')
 def fjordverdriet():
     return render_template('fjordverdriet.html')
+
+@app.route('/vanillejenever')
+def vanillejenever():
+    return render_template('vanillejenever.html')
+
+@app.route('/feestverdriet')
+def feestverdriet():
+    return render_template('feestverdriet.html')
+
+@app.route('/seks')
+def seks():
+    return render_template('seks.html')
