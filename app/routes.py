@@ -36,3 +36,11 @@ def feestverdriet():
 @app.route('/seks')
 def seks():
     return render_template('seks.html')
+
+@app.route('/lesbian')
+def lesbian():
+    return render_template('lesbian.html')
+
+@app.route('/cato')
+def cato():
+    return render_template('cato.html')
