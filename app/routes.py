@@ -45,6 +45,14 @@ def lesbian():
 def fotosynthese():
     return render_template('fotosynthese.html')
 
-@app.route('/lena')
-def lena():
-    return render_template('lena.html')
+@app.route('/koas')
+def koas():
+    return render_template('koas.html')
+
+@app.route('/nicole&erica')
+def nicole_erica():
+    return render_template('nicole&erica.html')
+
+@app.route('/aksiedentje')
+def aksiedentje():
+    return render_template('aksiedentje.html')
