@@ -41,6 +41,10 @@ def seks():
 def lesbian():
     return render_template('lesbian.html')
 
-@app.route('/cato')
-def cato():
-    return render_template('cato.html')
+@app.route('/fotosynthese')
+def fotosynthese():
+    return render_template('fotosynthese.html')
+
+@app.route('/lena')
+def lena():
+    return render_template('lena.html')

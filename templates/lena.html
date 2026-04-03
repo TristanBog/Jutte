@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lena</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Lena</h1>
+
+    <div class="card">
+      <pre>Mijn liefste vriendinnetje begint aan haar 21e levensjaar. Al jaren ben jij het zonnetje in mijn leven, de choas in de stilte en de kalmte in de storm; allemaal tegelijkertijd. De persoon die naast mij staat bij elke beslissing, hoe dramatisch deze ook zijn. De vrouw waarvan ik weet dat deze naast mij gaat staan als ik trouw, en ja dan bedoel ik als mijn vrouw vrouw. #homo wetende dat wat er ook gebeurd, wat er ook komt, wij vinden altijd onze weg terug naar elkaar. Always. 
+
+Jeg elsker deg, min kjærlighet!</pre>
+      <br>
+      <img src="{{ url_for('static', filename='l-j.jpg') }}" alt="Photo" class="photo">
+      <br>
+      <button onclick="window.location.href='/'">Terug</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='home.js') }}"></script>
+</body>
+</html>
