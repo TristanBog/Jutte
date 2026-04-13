@@ -56,3 +56,7 @@ def nicole_erica():
 @app.route('/aksiedentje')
 def aksiedentje():
     return render_template('aksiedentje.html')
+
+@app.route('/troela')
+def troela():
+    return render_template('troela.html')
